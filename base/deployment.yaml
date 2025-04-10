@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: homebridge
-  namespace: homebridge
 spec:
   revisionHistoryLimit: 3
   replicas: 1
