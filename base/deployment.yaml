@@ -26,8 +26,6 @@ spec:
           volumeMounts:
             - name: homebridge-data
               mountPath: /homebridge
-          # securityContext:
-          #   privileged: true
           resources:
             requests:
               cpu: '2'

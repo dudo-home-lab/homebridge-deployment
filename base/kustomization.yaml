@@ -9,12 +9,12 @@ resources:
   - service.yaml
 
 images:
-- name: homebridge
-  newName: homebridge/homebridge
-  newTag: '2025-02-26'
+  - name: homebridge
+    newName: homebridge/homebridge
+    newTag: '2025-02-26'
 
 configMapGenerator:
-- name: homebridge-config
-  literals:
-    - TZ=America/Los_Angeles
-    - ENABLE_AVAHI=0
+  - name: homebridge-config
+    literals:
+      - TZ=America/Los_Angeles
+      - ENABLE_AVAHI=0
