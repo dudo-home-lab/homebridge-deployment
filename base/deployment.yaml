@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homebridge
+  namespace: homebridge
+spec:
+  revisionHistoryLimit: 3
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: homebridge
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: homebridge
+    spec:
+      serviceAccountName: homebridge
+      containers:
+        - name: homebridge
+          image: homebridge
+          envFrom:
+            - configMapRef:
+                name: homebridge-config
+          ports:
+            - name: ui
+              containerPort: 8581
+          volumeMounts:
+            - name: homebridge-data
+              mountPath: /homebridge
+          securityContext:
+            privileged: true
+          resources:
+            requests:
+              cpu: '2'
+              memory: 2Gi
+            limits:
+              cpu: '4'
+              memory: 4Gi
+      volumes:
+        - name: homebridge-data
+          persistentVolumeClaim:
+            claimName: homebridge-pvc
+      hostNetwork: true

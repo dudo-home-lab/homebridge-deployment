@@ -1,0 +1,30 @@
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: homebridge
+  namespace: homebridge
+  annotations:
+    gethomepage.dev/description: Bringing HomeKit support where there is none
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/group: Cluster Management
+    gethomepage.dev/icon: homebridge.png
+    gethomepage.dev/name: Homebridge
+spec:
+  parentRefs:
+    - group: gateway.networking.k8s.io
+      kind: Gateway
+      name: external-http-gateway
+      namespace: istio-ingress
+  hostnames: []
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: "/"
+      backendRefs:
+        - group: ''
+          kind: Service
+          name: homebridge
+          port: 8581
+          weight: 1

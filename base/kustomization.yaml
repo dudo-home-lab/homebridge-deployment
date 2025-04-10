@@ -1,0 +1,22 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - secret.yaml
+  - deployment.yaml
+  - http-route.yaml
+  - service-account.yaml
+  - service.yaml
+
+images:
+- name: homebridge
+  newName: homebridge/homebridge
+  newTag: '2025-02-26'
+
+configMapGenerator:
+- name: homebridge-config
+  literals:
+    - TZ=America/Los_Angeles
+    - ENABLE_AVAHI=1
