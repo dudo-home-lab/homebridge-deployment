@@ -19,4 +19,4 @@ configMapGenerator:
 - name: homebridge-config
   literals:
     - TZ=America/Los_Angeles
-    - ENABLE_AVAHI=1
+    - ENABLE_AVAHI=0
