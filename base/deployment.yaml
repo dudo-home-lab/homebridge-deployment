@@ -14,7 +14,6 @@ spec:
       labels:
         app.kubernetes.io/name: homebridge
     spec:
-      serviceAccountName: homebridge
       containers:
         - name: homebridge
           image: homebridge
@@ -27,8 +26,8 @@ spec:
           volumeMounts:
             - name: homebridge-data
               mountPath: /homebridge
-          securityContext:
-            privileged: true
+          # securityContext:
+          #   privileged: true
           resources:
             requests:
               cpu: '2'
@@ -41,3 +40,4 @@ spec:
           persistentVolumeClaim:
             claimName: homebridge-pvc
       hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
