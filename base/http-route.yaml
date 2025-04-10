@@ -4,10 +4,9 @@ kind: HTTPRoute
 metadata:
   name: homebridge
   annotations:
-    gethomepage.dev/description: Bringing HomeKit support where there is none
     gethomepage.dev/enabled: "true"
+    gethomepage.dev/description: Bringing HomeKit support where there is none
     gethomepage.dev/group: Cluster Management
-    gethomepage.dev/icon: homebridge.png
     gethomepage.dev/name: Homebridge
 spec:
   parentRefs:
