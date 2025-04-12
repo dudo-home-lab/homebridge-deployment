@@ -28,10 +28,10 @@ spec:
               mountPath: /homebridge
           resources:
             requests:
-              cpu: '1'
+              cpu: '2'
               memory: 1Gi
             limits:
-              cpu: '2'
+              cpu: '4'
               memory: 2Gi
       volumes:
         - name: homebridge-data
