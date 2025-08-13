@@ -9,9 +9,8 @@ resources:
   - service.yaml
 
 images:
-  - name: homebridge
-    newName: homebridge/homebridge
-    newTag: '2025-02-26'
+  - name: homebridge/homebridge
+    newTag: '2025-08-07'
 
 configMapGenerator:
   - name: homebridge-config
