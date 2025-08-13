@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: homebridge
-          image: homebridge
+          image: homebridge/homebridge
           envFrom:
             - configMapRef:
                 name: homebridge-config
