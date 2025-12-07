@@ -10,7 +10,7 @@ resources:
 
 images:
   - name: homebridge/homebridge
-    newTag: '2025-08-07'
+    newTag: '2025-12-06'
 
 configMapGenerator:
   - name: homebridge-config
